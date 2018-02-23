@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<body>
+
+<script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.addItem = function () {
+        $scope.products.push($scope.addMe);
+
+    }    
+    $scope.removeItem = function (remove) {
+        $scope.products.splice(remove ,1);
+    }
+});
+</script>
+
+<div ng-app="myShoppingList" ng-controller="myCtrl">
+  <ul>
+    <li ng-repeat="remove in products">{{remove}}<span ng-click="removeItem($index)">remove</span></li>
+  </ul>
+  <input ng-model="addMe">
+
+
+  <button ng-click="addItem()">Add</button>
+
+</div>
+
+<p>Click the little remove to remove an item from the shopping list.</p>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+ <!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<body ng-app="myApp">
+
+<div  ng-controller="myCtrl" ng-show="login">
+ User name:<br>
+  <input type="text" name="usrname" ng-model="usrname">
+  <br>
+ Password:<br>
+  <input type="text" name="password" ng-model="password">
+  <br>
+<input type="submit" name="submit" ng-click="submit()">
+</div>
+<div ng-controller="homectrl" ng-show="home">
+welcome to home page{{message}}
+</div>
+  <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope,$rootScope) {
+    $scope.usrname;
+    $scope.password; 
+    $scope.login=true;
+    $rootScope.home=false;
+    $scope.submit=function(){
+	if($scope.usrname=="girija" && $scope.password=="51997")
+   	{
+	alert($rootScope.home);
+        $rootScope.home=true;
+	$scope.login=false;
+	}
+	else
+	{
+ 	alert("please enter correct value");
+} }
+
+});
+    app.controller('homectrl', function($scope) {
+    
+});
+
+   </script>
+   </body>
+   </html>

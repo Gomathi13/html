@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<body>
+<form>
+<div ng-app="myApp" ng-controller="personCtrl">
+ First name:<br>
+  <input type="text" name="firstName" ng-model="firstName">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastName" ng-model="lastName">
+ <br>
+  DOB:<br>
+  <input type="text" name="DOB" ng-model=DOB"><br>
+  
+  Oualification:<br>
+  <input type="text" name="Qualification" ng-model="Qualification"><br>
+ Gender:<br>
+ <input type="radio" ng-model="myVar" value="male">Male
+<input type="radio" ng-model="myVar" value="tuts">Female<br>
+    full name:{{fullname()}};
+     <br>
+   </div>
+  <script>
+   angular.module('myApp', []).controller('personCtrl', function($scope) 
+ {
+    $scope.firstName;
+    $scope.lastName ;
+    $scope.DOB;
+     $scope.Gender;
+    
+}
+    $scope.fullname=function(){
+ return $scope.firstName  + " " + $scope.lastName+" "+$scope.DOB+" "+$scope.Gender;
+}
+});
+</script>
+</body>
+</html>
